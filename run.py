@@ -39,6 +39,8 @@ def input_forms():
     # ブラウザを終了する
     browser.quit()
 
+    print("execute run.")
+
 def main():
     schedule.every(30).seconds.do(input_forms)
 
