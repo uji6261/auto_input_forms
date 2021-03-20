@@ -14,7 +14,7 @@ def input_forms():
     # browser = webdriver.Chrome("chromedriver.exe")
 
     # webdriver_managerを使ってブラウザを起動
-    browser = webdriver.Chrome(ChromeDriverManager().install())
+    browser = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
     # 指定のURLにアクセスする
     url = "https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAa__ZUHFKtUNERIMTRYVUJUQjhXU0ZDNE5CS0ZOUTUzUi4u"
