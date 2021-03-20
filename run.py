@@ -2,16 +2,19 @@ from selenium import webdriver
 from time import sleep
 from selenium.webdriver.chrome.options import Options
 import schedule
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 def input_forms():
     options = Options()
     options.add_argument("--headless")
-    browser = webdriver.Chrome("chromedriver.exe", options=options)
+    # browser = webdriver.Chrome("chromedriver.exe", options=options)
 
     # chromedriverを使ってブラウザを起動（exeを指定するのはwindows専用）
     # browser = webdriver.Chrome("chromedriver.exe")
 
+    # webdriver_managerを使ってブラウザを起動
+    browser = webdriver.Chrome(ChromeDriverManager().install())
 
     # 指定のURLにアクセスする
     url = "https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAa__ZUHFKtUNERIMTRYVUJUQjhXU0ZDNE5CS0ZOUTUzUi4u"
@@ -22,7 +25,7 @@ def input_forms():
 
     # class名で指定する（classは複数ある場合はリスト形式で読み込む）
     elem_name = browser.find_elements_by_class_name("office-form-question-textbox")
-    elem_name[1].send_keys("氏原晋太郎")
+    elem_name[1].send_keys("uji")
     elem_name[2].send_keys("Herokuから入力")
 
     # ラジオボタンをクリックする（value属性で指定する方法）
