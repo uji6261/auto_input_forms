@@ -16,6 +16,9 @@ def input_forms():
     # webdriver_managerを使ってブラウザを起動
     browser = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
+    # herokuにあるwebdriverを使う
+    browser = webdriver.Chrome(executable_path="/app/.chromedriver/bin/chromedriver", options=options)
+
     # 指定のURLにアクセスする
     url = "https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAa__ZUHFKtUNERIMTRYVUJUQjhXU0ZDNE5CS0ZOUTUzUi4u"
     browser.get(url)
